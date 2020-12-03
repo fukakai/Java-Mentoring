@@ -1,10 +1,11 @@
 package com.company.omatfat.poc.metier.service.impl;
 
 import com.company.omatfat.poc.metier.entity.UserEntity;
-import com.company.omatfat.poc.metier.service.api.UserServiceApi;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import com.company.omatfat.poc.metier.service.api.UserServiceApi;
+import net.bytebuddy.implementation.bind.MethodDelegationBinder;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -16,7 +17,7 @@ import org.springframework.boot.test.context.SpringBootTest;
  * <p>
  */
 @SpringBootTest
-public class UserServiceTest {
+class UserServiceTest {
     /*
         /!\ ----- Test name = ClassNameTest                                /!\
         /!\ ----- SERVICES are the only revelent classes to be Unit Test   /!\

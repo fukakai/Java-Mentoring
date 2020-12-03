@@ -1,10 +1,9 @@
 package com.company.omatfat.poc.metier.service.api;
 
 import com.company.omatfat.poc.metier.entity.UserEntity;
-import java.rmi.UnexpectedException;
+
 import java.util.List;
 import java.util.Optional;
-import javax.persistence.EntityNotFoundException;
 
 /**
  * @author Romain DALICHAMP - romain.dalichamp@alithya.com
@@ -13,6 +12,8 @@ import javax.persistence.EntityNotFoundException;
 public interface UserServiceApi {
 
     Optional<UserEntity> getUserEntity(Long id);
+
+    List<UserEntity> getTwoUserEntity(Long id, Long id2);
 
     List<UserEntity> getAllUserEntity();
 

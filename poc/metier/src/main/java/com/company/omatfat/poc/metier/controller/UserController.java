@@ -33,6 +33,11 @@ public class UserController {
         return userServiceInterface.getUserEntity(id);
     }
 
+    @GetMapping("{id}/{id2}")
+    public List<UserEntity> getTwoUserEntity(@PathVariable Long id, @PathVariable Long id2) {
+        return userServiceInterface.getTwoUserEntity(id, id2);
+    }
+
     @GetMapping
     public List<UserEntity> getAllUserEntity() {
         return userServiceInterface.getAllUserEntity();

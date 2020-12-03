@@ -3,12 +3,13 @@ package com.company.omatfat.poc.interaction.restclient;
 import com.company.omatfat.poc.interaction.dto.UserDto;
 import com.company.omatfat.poc.interaction.exception.MetierApiException;
 import com.company.omatfat.poc.interaction.exception.UserException;
+
 import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
+
 import org.apache.commons.lang3.ArrayUtils;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.HttpServerErrorException;
 import org.springframework.web.client.ResourceAccessException;
@@ -36,6 +37,19 @@ public class UserRestClient extends RestTemplate {
             }
 
             return user;
+        } catch (MetierApiException e) {
+            throw new MetierApiException("Could not contact the Metier API");
+        }
+    }
+
+    public List<UserDto> getTwoUserDto(Long id, Long id2) throws MetierApiException, UserException {
+        try {
+            UserDto userDto = getForObject(metierUrl + jsonUri + id, UserDto.class);
+            UserDto userDto2 = getForObject(metierUrl + jsonUri + id2, UserDto.class);
+            UserDto[] listUserDto = {userDto, userDto2};
+
+            return Arrays.asList(listUserDto);
+
         } catch (MetierApiException e) {
             throw new MetierApiException("Could not contact the Metier API");
         }

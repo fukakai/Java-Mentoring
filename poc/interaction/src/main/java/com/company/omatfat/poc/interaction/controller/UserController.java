@@ -44,6 +44,12 @@ public class UserController {
         return userServiceInterface.getAllUserDto();
     }
 
+    @ResponseStatus(HttpStatus.OK)
+    @GetMapping("{id}/{id2}") // GET http://----/users/1
+    public Iterable<UserDto> getTwoUserDto(@PathVariable Long id, @PathVariable Long id2) throws MetierApiException, UserException {
+        return userServiceInterface.getTwoUserDto(id, id2);
+    }
+
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping // POST http://----/users/
     public UserDto addUserDto(

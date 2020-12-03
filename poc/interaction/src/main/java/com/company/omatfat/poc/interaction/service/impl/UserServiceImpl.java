@@ -25,6 +25,10 @@ public class UserServiceImpl implements UserServiceApi {
         return userRestClient.getUserDto(id);
     }
 
+    public List<UserDto> getTwoUserDto(Long id, Long id2) throws MetierApiException, UserException {
+        return userRestClient.getTwoUserDto(id, id2);
+    }
+
     public List<UserDto> getAllUserDto() throws MetierApiException, UserException {
         // Business rules
         return userRestClient.getAllUserDto();
